@@ -9,7 +9,7 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
-        current_url = self.is_element_present(*MainPageLocators.LINK), "Login link is not presented"
+        current_url = self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
         assert "login" in current_url, f"No login substring in the {current_url}"
 
         assert True
