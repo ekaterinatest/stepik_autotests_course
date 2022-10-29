@@ -1,6 +1,6 @@
 from .base_page import BasePage
 
-
+#класс Page Object
 class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()
@@ -11,7 +11,6 @@ class LoginPage(BasePage):
         # реализуйте проверку на корректный url адрес
         current_url = self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
         assert "login" in current_url, f"No login substring in the {current_url}"
-
         assert True
 
     def should_be_login_form(self):
