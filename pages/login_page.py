@@ -1,8 +1,7 @@
 from .base_page import BasePage
-from .locators import BasePageLocators, LoginPageLocators
+from .locators import LoginPageLocators
 
 
-# класс Page Object
 class LoginPage(BasePage):
     def should_be_login_page(self):
         self.should_be_login_url()
@@ -11,7 +10,8 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
-        self.browser.current_url, "Current URL is not login URL"
+        current_url = self.browser.current_url
+        assert 'login' in current_url, "Current URL is not login URL"
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
@@ -28,7 +28,3 @@ class LoginPage(BasePage):
         self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD1).send_keys(password)
         self.browser.find_element(*LoginPageLocators.INPUT_PASSWORD2).send_keys(password)
         self.browser.find_element(*LoginPageLocators.REGISTER_BUTTON).click()
-
-
-
-
